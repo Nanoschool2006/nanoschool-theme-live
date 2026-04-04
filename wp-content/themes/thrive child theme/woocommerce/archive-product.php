@@ -14,60 +14,10 @@ get_header( 'shop' );
 do_action( 'woocommerce_before_main_content' );
 ?>
 
-<div class="ns-hero-section" id="ns-hero" style="display: none;">
-    <div class="ns-container">
-        <?php if ( function_exists( 'woocommerce_breadcrumb' ) ) : ?>
-            <div class="ns-hero-breadcrumb">
-                <?php woocommerce_breadcrumb(); ?>
-            </div>
-        <?php endif; ?>
+<?php
+/* Hero injected by ns_hero_inject() in functions.php - do not add here */
+?>
 
-        <div class="ns-hero-content">
-            <div class="ns-hero-badge">Expert Research Education Since 2006</div>
-            <h1 class="ns-hero-title"><?php woocommerce_page_title(); ?></h1>
-            <p class="ns-hero-subtitle">
-                Master advanced domains in AI, Biotechnology, and Nanotechnology with specialized courses 
-                designed for researchers, academics, and industry leaders.
-            </p>
-            
-            <div class="ns-hero-search">
-                <?php get_product_search_form(); ?>
-            </div>
-        </div>
-
-        <div class="ns-hero-stats">
-            <div class="ns-stat-item">
-                <span class="ns-stat-num">400+</span>
-                <span class="ns-stat-label">Specialized Courses</span>
-            </div>
-            <div class="ns-stat-item">
-                <span class="ns-stat-num">70,000+</span>
-                <span class="ns-stat-label">Learners Worldwide</span>
-            </div>
-            <div class="ns-stat-item">
-                <span class="ns-stat-num">95+</span>
-                <span class="ns-stat-label">Countries Represented</span>
-            </div>
-            <div class="ns-stat-item">
-                <span class="ns-stat-num">AEO-Ready</span>
-                <span class="ns-stat-label">Search-Optimized</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var hero = document.getElementById("ns-hero");
-    var topSection = document.getElementById("theme-top-section");
-    if (hero && topSection) {
-        topSection.appendChild(hero);
-        hero.style.display = "block";
-    } else if (hero) {
-        hero.style.display = "block"; // fallback if thrive layout is stripped
-    }
-});
-</script>
 
 <?php
 /**
