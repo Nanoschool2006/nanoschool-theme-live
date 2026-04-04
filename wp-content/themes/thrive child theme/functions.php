@@ -291,3 +291,14 @@ function ns_india_hub_page_content($content) {
     echo '</div><!-- #ns-india-hub -->';
     return ob_get_clean();
 }
+
+// Global fix: Header scrollbar + Disable Sticky Header (runs on ALL pages including homepage)
+add_action('wp_head', 'ns_global_header_fix', 999);
+function ns_global_header_fix(){
+    echo '<style id="ns-global-header-fix">';
+    echo '#thrive-header,.tve-scroll-appear{position:relative!important;top:0!important;transform:none!important;animation:none!important;z-index:100!important}';
+    echo 'body{padding-top:0!important}';
+    echo '#thrive-header{overflow:visible!important;overflow-y:visible!important}';
+    echo '#thrive-header svg{max-height:100%;overflow:hidden}';
+    echo '</style>';
+}
