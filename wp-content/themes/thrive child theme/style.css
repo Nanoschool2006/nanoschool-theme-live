@@ -1,0 +1,53 @@
+/*
+ Theme Name:   Thrive Child Theme
+ Description:  Child theme for Thrive Theme
+ Author:       NSTC
+ Template:     thrive-theme
+ Version:      1.0.0
+*/
+
+/* ============================================================
+ * SEO, AEO & GEO Semantic Stylings
+ * ============================================================ */
+
+/* Improve list styles inside product descriptions (AEO format) */
+.woocommerce-Tabs-panel--description ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 24px;
+}
+
+.woocommerce-Tabs-panel--description ul li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: var(--ns-text, #334155);
+}
+
+.woocommerce-Tabs-panel--description ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--ns-accent-hover, #D4A017);
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* Ensure clean semantic visual margins for LLM parsing and readability */
+.woocommerce-Tabs-panel--description h2 {
+    margin-top: 40px;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    color: var(--ns-primary, #1A365D);
+    border-bottom: 2px solid var(--ns-bg-page, #F1F5F9);
+    padding-bottom: 8px;
+}
+
+.woocommerce-Tabs-panel--description h3 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    font-size: 1.25rem;
+    color: var(--ns-text, #334155);
+}

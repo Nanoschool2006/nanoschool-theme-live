@@ -1,0 +1,1 @@
+/chroot/home/ab6f70ce/53a0deccfa.nxcli.io/html/wp-content/mu-plugins/nexcess-mapps/DropIns/fatal-error-handler.php
