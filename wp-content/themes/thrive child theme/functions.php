@@ -333,15 +333,47 @@ function ns_header_accessibility_enhancements(){
           if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
         });
       }
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', apply, { once: true });
-      } else {
-        apply();
+
+      function stabilizeMobileTrigger() {
+        if (window.innerWidth > 991) return;
+        var trigger = document.querySelector('#thrive-header .tve-m-trigger');
+        if (!trigger) return;
+
+        trigger.style.setProperty('position', 'fixed', 'important');
+        trigger.style.setProperty('right', '14px', 'important');
+        trigger.style.setProperty('left', 'auto', 'important');
+        trigger.style.setProperty('width', '56px', 'important');
+        trigger.style.setProperty('height', '56px', 'important');
+        trigger.style.setProperty('min-height', '56px', 'important');
+        trigger.style.setProperty('z-index', '1000001', 'important');
+        trigger.style.setProperty('display', 'block', 'important');
+        trigger.style.setProperty('visibility', 'visible', 'important');
+        trigger.style.setProperty('opacity', '1', 'important');
+
+        var top = document.body.classList.contains('admin-bar') ? '58px' : '14px';
+        trigger.style.setProperty('top', top, 'important');
       }
+
+      function onTick() {
+        apply();
+        stabilizeMobileTrigger();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', onTick, { once: true });
+      } else {
+        onTick();
+      }
+
+      window.addEventListener('resize', stabilizeMobileTrigger, { passive: true });
+      window.addEventListener('scroll', stabilizeMobileTrigger, { passive: true });
+      setTimeout(stabilizeMobileTrigger, 250);
+      setTimeout(stabilizeMobileTrigger, 1200);
     })();
     </script>
     <?php
 }
 // NS_HEADER_HARDENING_END
+
 
 
