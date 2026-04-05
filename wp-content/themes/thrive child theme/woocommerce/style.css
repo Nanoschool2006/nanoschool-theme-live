@@ -728,9 +728,22 @@ body.single-product .theme-section.top-section {
 
 /* NS_COURSE_MOBILE_NAV_FIX_START */
 @media (max-width: 991px) {
-  /* Navigation container */
-  #thrive-header .tve-ham-wrap.tcb-mp,
+  /* Force hamburger trigger at tablet/mobile */
+  #thrive-header .tve-m-trigger {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 10001 !important;
+  }
+
+  /* Keep panel closed by default; only style when expanded */
   #thrive-header .tve-ham-wrap {
+    display: none !important;
+  }
+
+  /* Navigation container when open */
+  #thrive-header .tve-ham-wrap.tve-m-expanded {
+    display: block !important;
     position: fixed !important;
     left: 0 !important;
     right: 0 !important;
@@ -745,8 +758,8 @@ body.single-product .theme-section.top-section {
   }
 
   /* Menu */
-  #m-19b21180129,
-  .thrv_widget_menu ul.tve_w_menu {
+  #thrive-header .tve-ham-wrap.tve-m-expanded #m-19b21180129,
+  #thrive-header .tve-ham-wrap.tve-m-expanded .thrv_widget_menu ul.tve_w_menu {
     width: 100% !important;
     max-width: 100% !important;
     left: 0 !important;
@@ -758,7 +771,7 @@ body.single-product .theme-section.top-section {
   }
 
   /* Menu items */
-  #thrive-header .menu-item {
+  #thrive-header .tve-ham-wrap.tve-m-expanded .menu-item {
     width: 100% !important;
     max-width: 100% !important;
     left: 0 !important;
@@ -766,7 +779,7 @@ body.single-product .theme-section.top-section {
   }
 
   /* Menu links */
-  .tcb-menu-item-container.tcb--row {
+  #thrive-header .tve-ham-wrap.tve-m-expanded .tcb-menu-item-container.tcb--row {
     width: 100% !important;
     max-width: 100% !important;
     left: 0 !important;
@@ -780,9 +793,9 @@ body.single-product .theme-section.top-section {
     height: 0 !important;
     overflow: hidden !important;
   }
-  .thrv_widget_menu svg.m-icons,
-  .m-icons svg,
-  .tcb-star.tcb-default-icon {
+  #thrive-header .tve-ham-wrap.tve-m-expanded .thrv_widget_menu svg.m-icons,
+  #thrive-header .tve-ham-wrap.tve-m-expanded .m-icons svg,
+  #thrive-header .tve-ham-wrap.tve-m-expanded .tcb-star.tcb-default-icon {
     max-width: 40px !important;
     max-height: 40px !important;
     width: auto !important;
@@ -801,17 +814,18 @@ body.single-product .theme-section.top-section {
   }
 
   /* Dropdown triggers */
-  .tve-item-dropdown-trigger {
+  #thrive-header .tve-ham-wrap.tve-m-expanded .tve-item-dropdown-trigger {
     position: relative !important;
     left: auto !important;
     right: 0 !important;
     float: right !important;
   }
-  .tve-item-dropdown-trigger svg {
+  #thrive-header .tve-ham-wrap.tve-m-expanded .tve-item-dropdown-trigger svg {
     max-width: 14px !important;
     max-height: 14px !important;
     position: relative !important;
   }
 }
 /* NS_COURSE_MOBILE_NAV_FIX_END */
+
 
