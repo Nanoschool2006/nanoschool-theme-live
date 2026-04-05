@@ -828,6 +828,13 @@ body.single-product .theme-section.top-section {
     z-index: 10003 !important;
     pointer-events: auto !important;
   }
+  #thrive-header .tve-m-trigger:not(.tve-triggered-icon) .tcb-icon-close,
+  #thrive-header .tve-m-trigger:not(.tve-triggered-icon) .tcb-icon-close-offscreen {
+    display: none !important;
+  }
+  #thrive-header .tve-m-trigger.tve-triggered-icon .tcb-icon-open {
+    display: none !important;
+  }
 
   /* Dropdown triggers */
   #thrive-header .tve-ham-wrap.tve-m-expanded .tve-item-dropdown-trigger {
@@ -843,6 +850,7 @@ body.single-product .theme-section.top-section {
   }
 }
 /* NS_COURSE_MOBILE_NAV_FIX_END */
+
 
 
 
