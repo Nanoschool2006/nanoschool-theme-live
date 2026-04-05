@@ -733,7 +733,15 @@ body.single-product .theme-section.top-section {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    z-index: 10001 !important;
+    position: fixed !important;
+    top: 14px !important;
+    right: 14px !important;
+    left: auto !important;
+    width: 56px !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    z-index: 10002 !important;
+    overflow: visible !important;
   }
 
   /* Keep panel closed by default; only style when expanded */
@@ -806,11 +814,13 @@ body.single-product .theme-section.top-section {
   .tve-m-trigger .thrv_icon,
   .thrv_icon.tcb-icon-close,
   .thrv_icon.tcb-icon-close-offscreen {
-    position: absolute !important;
-    right: 15px !important;
-    top: 15px !important;
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
     left: auto !important;
     max-width: 33px !important;
+    z-index: 10003 !important;
+    pointer-events: auto !important;
   }
 
   /* Dropdown triggers */
@@ -827,5 +837,6 @@ body.single-product .theme-section.top-section {
   }
 }
 /* NS_COURSE_MOBILE_NAV_FIX_END */
+
 
 
