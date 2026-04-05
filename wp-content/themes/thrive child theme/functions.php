@@ -292,13 +292,45 @@ function ns_india_hub_page_content($content) {
     return ob_get_clean();
 }
 
-// Global fix: Header scrollbar + Disable Sticky Header (runs on ALL pages including homepage)
+// NS_HEADER_HARDENING_START
+add_filter('show_admin_bar', 'ns_show_admin_bar_for_admin_only');
+function ns_show_admin_bar_for_admin_only($show){
+    if (is_admin()) return $show;
+    return current_user_can('manage_options');
+}
+
 add_action('wp_head', 'ns_global_header_fix', 999);
 function ns_global_header_fix(){
+    if (is_admin()) return;
     echo '<style id="ns-global-header-fix">';
-    echo '#thrive-header,.tve-scroll-appear{position:relative!important;top:0!important;transform:none!important;animation:none!important;z-index:100!important}';
-    echo 'body{padding-top:0!important}';
-    echo '#thrive-header{overflow:visible!important;overflow-y:visible!important}';
+    echo '#thrive-header{position:sticky!important;top:0!important;z-index:1000!important;background:#0f172a!important;overflow:visible!important;overflow-y:visible!important}';
+    echo 'body.admin-bar #thrive-header{top:32px!important}';
+    echo '@media screen and (max-width:782px){body.admin-bar #thrive-header{top:46px!important}}';
     echo '#thrive-header svg{max-height:100%;overflow:hidden}';
     echo '</style>';
 }
+
+add_action('wp_footer', 'ns_header_accessibility_enhancements', 99);
+function ns_header_accessibility_enhancements(){
+    if (is_admin()) return;
+    ?>
+    <script id="ns-header-a11y">
+    (function () {
+      function apply() {
+        document.querySelectorAll('#thrive-header .tve-m-trigger').forEach(function (el) {
+          if (!el.getAttribute('aria-label')) el.setAttribute('aria-label', 'Menu');
+          if (!el.getAttribute('role')) el.setAttribute('role', 'button');
+          if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', apply, { once: true });
+      } else {
+        apply();
+      }
+    })();
+    </script>
+    <?php
+}
+// NS_HEADER_HARDENING_END
+
