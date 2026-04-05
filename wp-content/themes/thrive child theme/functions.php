@@ -306,6 +306,16 @@ function ns_global_header_fix(){
     echo '#thrive-header{position:sticky!important;top:0!important;z-index:1000!important;background:#0f172a!important;overflow:visible!important;overflow-y:visible!important}';
     echo 'body.admin-bar #thrive-header{top:32px!important}';
     echo '@media screen and (max-width:782px){body.admin-bar #thrive-header{top:46px!important}}';
+    echo '@media screen and (max-width:991px){';
+    echo '#thrive-header{position:fixed!important;left:0!important;right:0!important;top:0!important;z-index:1000!important}';
+    echo 'body.admin-bar #thrive-header{top:46px!important}';
+    echo 'body{padding-top:60px!important}';
+    echo 'body.admin-bar{padding-top:106px!important}';
+    echo '#thrive-header .tve-m-trigger{position:fixed!important;top:14px!important;right:14px!important;z-index:1000001!important;display:block!important;visibility:visible!important;opacity:1!important}';
+    echo 'body.admin-bar #thrive-header .tve-m-trigger{top:58px!important}';
+    echo '#thrive-header .tve-ham-wrap{display:none!important}';
+    echo '#thrive-header .tve-ham-wrap.tve-m-expanded{display:block!important;position:fixed!important;left:0!important;right:0!important;top:0!important;width:100%!important;max-width:100vw!important;height:100vh!important;overflow-y:auto!important;z-index:9999!important}';
+    echo '}';
     echo '#thrive-header svg{max-height:100%;overflow:hidden}';
     echo '</style>';
 }
@@ -333,4 +343,5 @@ function ns_header_accessibility_enhancements(){
     <?php
 }
 // NS_HEADER_HARDENING_END
+
 
