@@ -837,6 +837,11 @@ body.single-product .theme-section.top-section {
   }
   #thrive-header .tve-m-trigger .tcb-icon-close {
     display: none !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
   }
   #thrive-header .tve-m-trigger.tve-triggered-icon .tcb-icon-close-offscreen {
     display: block !important;
@@ -856,6 +861,7 @@ body.single-product .theme-section.top-section {
   }
 }
 /* NS_COURSE_MOBILE_NAV_FIX_END */
+
 
 
 
